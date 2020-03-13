@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #add.noCircle{
+            list-style: none;
+        }
+    </style>
+    <script src="../jquery/3/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="haha" title="haha1">hehe1</div>
+    <div class="haha" title="haha2">hehe2</div>
+    <div class="haha" title="haha3">hehe3</div>
+
+    <form action="#">
+        <label for=""><input type="radio">男</label>
+        <label for=""><input type="radio">女</label>
+        <label for=""><input type="radio">保密</label>
+    </form>
+
+    <ul id="add">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+
+
+    <script>
+        console.log($(".haha").attr("class"));
+
+        $(".haha").attr("title", "heihei");
+        $(".haha").attr({
+            id: "h233",
+            abc: "abc"
+        })
+
+        $(".haha").attr("abc", function (i, attr) {
+            // console.log(attr);
+            return attr + i;
+        })
+
+        $(".haha").removeAttr("id");
+
+
+        $("form label input").prop("name", "gender");
+
+        $("form label:first input").prop("defaultChecked", true);
+
+        $("#add li").addClass(function (i, c) {
+            console.log(c);
+            return "li" + (i + 1);
+        })
+
+        $("#add li").removeClass(function (i, c) {
+            return "li" + (i + 1);
+        })
+
+        $("form label:first input").click(function(){
+            $("#add").toggleClass("noCircle",false);
+        })
+    </script>
+</body>
+
+</html>
